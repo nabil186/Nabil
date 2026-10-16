@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Varusai Mohideen E.M | Portfolio</title>
+<meta name="description" content="Portfolio of Varusai Mohideen E.M, first-year B.Tech IT student.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FFF4DC; --ink:#17120F; --red:#E5412D; --yellow:#FFC82E; --cyan:#2BA7C6;
+  --bang:'Bangers','Impact',sans-serif; --body:'Comic Neue','Comic Sans MS',sans-serif;
+  --ease:cubic-bezier(.2,.9,.25,1.2);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-weight:700;font-size:1.08rem;line-height:1.55;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(circle,rgba(229,65,45,.2) 1.6px,transparent 2px) 0 0/10px 10px;
+  -webkit-mask-image:linear-gradient(115deg,#000 0,transparent 38%,transparent 70%,#000 100%);
+  mask-image:linear-gradient(115deg,#000 0,transparent 38%,transparent 70%,#000 100%)}
+a{color:inherit}
+:focus-visible{outline:4px solid var(--cyan);outline-offset:3px}
+h1,h2,h3{font-family:var(--bang);font-weight:400;letter-spacing:.03em;line-height:.95}
+
+/* top caption nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;gap:6px;padding:8px 10px;overflow-x:auto;background:var(--yellow);border-bottom:4px solid var(--ink)}
+nav a{font-family:var(--bang);letter-spacing:.06em;text-decoration:none;padding:2px 10px;border:3px solid var(--ink);background:var(--paper);white-space:nowrap;font-size:1.05rem;transition:transform .2s var(--ease),background .2s}
+nav a:hover{background:var(--red);color:var(--paper);transform:rotate(-3deg) scale(1.06)}
+
+section{padding:84px 20px 56px;max-width:1080px;margin:auto}
+.cap{display:inline-block;font-family:var(--bang);font-size:clamp(2rem,9vw,3.4rem);background:var(--yellow);border:4px solid var(--ink);padding:4px 16px 2px;box-shadow:6px 6px 0 var(--ink);transform:rotate(-2deg);margin-bottom:30px}
+
+/* panels */
+.panel{position:relative;background:#fff;border:4px solid var(--ink);box-shadow:8px 8px 0 var(--ink);padding:22px}
+.panel.y{background:var(--yellow)} .panel.r{background:var(--red);color:var(--paper)} .panel.c{background:var(--cyan)}
+.panel.dots::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle,rgba(23,18,15,.22) 1.5px,transparent 2px) 0 0/8px 8px;-webkit-mask-image:linear-gradient(200deg,#000,transparent 55%);mask-image:linear-gradient(200deg,#000,transparent 55%)}
+.panel h3{font-size:2rem;margin-bottom:10px;position:relative}
+.panel p,.panel li{position:relative}
+
+/* signature: cards tilt toward the finger */
+.tilt{transform:perspective(700px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .5s var(--ease),box-shadow .5s var(--ease);touch-action:pan-y;will-change:transform}
+.tilt.live{transition:transform .08s linear;box-shadow:calc(8px + var(--sx,0px)) calc(8px + var(--sy,0px)) 0 var(--ink)}
+
+/* reveal: panels pop in */
+.js .pop{opacity:0;scale:.86;rotate:-1.5deg}
+.js .pop.in{opacity:1;scale:1;rotate:0deg;transition:opacity .35s,scale .55s var(--ease),rotate .55s var(--ease)}
+
+/* hero */
+#home{min-height:100svh;display:grid;align-content:center;gap:22px;padding-top:96px}
+.name{font-size:clamp(3.2rem,19vw,10.5rem);line-height:.88;color:var(--yellow);-webkit-text-stroke:3px var(--ink);paint-order:stroke fill;text-shadow:6px 6px 0 var(--ink);letter-spacing:.02em}
+.name span{display:block}
+.name .l2{margin-left:6vw} .name .l3{color:var(--red);margin-left:14vw;font-size:.7em}
+.mono{width:min(46vw,200px);justify-self:end;margin-top:-10px;cursor:pointer;filter:drop-shadow(5px 5px 0 var(--ink));transition:transform .3s var(--ease);-webkit-tap-highlight-color:transparent}
+.mono:hover{transform:rotate(8deg) scale(1.05)}
+.mono:active{transform:scale(.92)}
+.hero-row{display:grid;gap:18px}
+.bubble{position:relative;background:#fff;border:4px solid var(--ink);border-radius:28px;padding:16px 20px;max-width:30rem;font-size:1.2rem;box-shadow:5px 5px 0 var(--ink)}
+.bubble::after{content:"";position:absolute;left:30px;bottom:-24px;width:26px;height:26px;background:#fff;border-right:4px solid var(--ink);border-bottom:4px solid var(--ink);transform:skewX(-35deg) rotate(45deg) translate(-6px,-6px);clip-path:polygon(100% 0,100% 100%,0 100%)}
+.now{display:inline-block;background:var(--ink);color:var(--yellow);padding:6px 14px;font-size:1rem;transform:rotate(1deg);max-width:30rem}
+.btns{display:flex;flex-wrap:wrap;gap:16px;margin-top:6px}
+.btn{font-family:var(--bang);font-size:1.6rem;letter-spacing:.06em;text-decoration:none;padding:8px 26px 4px;border:4px solid var(--ink);background:var(--red);color:var(--paper);box-shadow:6px 6px 0 var(--ink);transition:transform .15s var(--ease),box-shadow .15s;display:inline-block}
+.btn.alt{background:var(--paper);color:var(--ink)}
+.btn:hover{transform:translate(-2px,-2px) rotate(-1.5deg);box-shadow:9px 9px 0 var(--ink)}
+.btn:active{transform:translate(5px,5px);box-shadow:1px 1px 0 var(--ink)}
+
+/* about */
+.about{display:grid;gap:26px}
+.about .panel{font-size:1.12rem}
+.about .panel+.panel{margin-left:5vw}
+.about p+p{margin-top:12px}
+.dropcap::first-letter{font-family:var(--bang);float:left;font-size:4.2rem;line-height:.8;padding:6px 10px 0 0;color:var(--red)}
+
+/* skills */
+.skills{display:grid;gap:22px}
+.lvl{font-family:var(--bang);display:inline-block;background:var(--ink);color:var(--yellow);padding:2px 10px 0;margin:4px 0 12px;font-size:1.2rem;letter-spacing:.06em;transform:rotate(-2deg)}
+.skills .panel ul{list-style:none;padding:0;font-size:1.1rem}
+.skills .panel li::before{content:"POW ";font-family:var(--bang);color:var(--red);font-size:.8em}
+.panel.r li::before{color:var(--yellow)}
+
+/* journey */
+.strip{display:grid;gap:26px}
+.strip .tag{font-family:var(--bang);position:absolute;top:-16px;left:14px;background:var(--paper);color:var(--ink);border:3px solid var(--ink);padding:0 10px;font-size:1.1rem;transform:rotate(-3deg);z-index:2}
+
+/* beyond code */
+.talk{display:grid;gap:34px}
+.talk .bubble{max-width:none;box-shadow:5px 5px 0 var(--ink)}
+.talk .bubble:nth-child(even){border-radius:28px 28px 4px 28px;background:var(--yellow)}
+.talk .bubble:nth-child(even)::after{left:auto;right:30px;background:var(--yellow);transform:skewX(35deg) rotate(-45deg) translate(6px,-6px);clip-path:polygon(0 0,100% 100%,0 100%);border-right:0;border-left:4px solid var(--ink)}
+.talk .bubble b{font-family:var(--bang);font-weight:400;font-size:1.5rem;display:block;letter-spacing:.04em}
+
+/* contact */
+.contact{display:grid;gap:22px}
+.contact a.panel{display:block;text-decoration:none}
+.contact h3{font-size:2.3rem}
+footer{padding:30px 20px 60px;text-align:center;font-family:var(--bang);letter-spacing:.08em;font-size:1.2rem}
+
+/* intro: rubber stamp */
+#intro{position:fixed;inset:0;z-index:100;background:var(--paper);display:grid;place-items:center;overflow:hidden;clip-path:inset(0 0 0 0)}
+#intro::before{content:"";position:absolute;inset:0;background:radial-gradient(circle,rgba(229,65,45,.28) 2px,transparent 2.5px) 0 0/12px 12px}
+#intro.out{animation:wipe .5s cubic-bezier(.7,0,.3,1) forwards}
+@keyframes wipe{to{clip-path:inset(0 0 100% 0)}}
+.stampwrap{position:relative;animation:shake .35s .72s}
+.stamp{font-family:var(--bang);color:var(--red);border:7px solid var(--red);outline:3px solid var(--red);outline-offset:4px;padding:14px 20px 8px;text-align:center;line-height:.95;letter-spacing:.05em;font-size:clamp(2.3rem,13vw,5.6rem);transform:rotate(-7deg);opacity:0;animation:thump .75s cubic-bezier(.5,0,.9,.4) .05s forwards;
+  -webkit-mask:radial-gradient(circle at 20% 30%,transparent 1px,#000 2px) 0 0/7px 7px;mask:none;position:relative}
+.stamp small{display:block;font-size:.34em;letter-spacing:.2em;margin-top:6px}
+.ring{position:absolute;left:50%;top:50%;width:60px;height:60px;margin:-30px;border:6px solid var(--ink);border-radius:50%;opacity:0;animation:ring .6s .72s ease-out}
+@keyframes thump{0%{opacity:0;transform:rotate(-7deg) scale(3.2)}70%{opacity:1;transform:rotate(-7deg) scale(3.2)}0.1%{}100%{opacity:1;transform:rotate(-7deg) scale(1)}}
+@keyframes shake{0%,100%{transform:translate(0)}20%{transform:translate(-6px,5px)}45%{transform:translate(5px,-4px)}70%{transform:translate(-3px,2px)}}
+@keyframes ring{0%{opacity:.8;transform:scale(1)}100%{opacity:0;transform:scale(14)}}
+#skip{position:absolute;right:14px;bottom:14px;z-index:2;font-family:var(--bang);letter-spacing:.08em;font-size:1.2rem;border:3px solid var(--ink);background:var(--yellow);padding:4px 16px 0;cursor:pointer;box-shadow:4px 4px 0 var(--ink)}
+
+/* easter egg */
+.sfx{position:fixed;z-index:90;font-family:var(--bang);pointer-events:none;color:var(--yellow);-webkit-text-stroke:3px var(--ink);paint-order:stroke fill;text-shadow:5px 5px 0 var(--red);animation:sfx 1.3s var(--ease) forwards}
+@keyframes sfx{0%{opacity:0;transform:scale(.2) rotate(var(--r))}25%{opacity:1;transform:scale(1.2) rotate(var(--r))}80%{opacity:1;transform:scale(1) rotate(var(--r))}100%{opacity:0;transform:scale(1.1) rotate(var(--r))}}
+
+@media(min-width:760px){
+  section{padding:110px 40px 70px}
+  #home{grid-template-columns:1fr auto;align-items:end}
+  #home .name,#home .hero-row{grid-column:1}
+  .mono{grid-column:2;grid-row:1;align-self:start;width:230px;margin:0}
+  .about{grid-template-columns:1.3fr 1fr;align-items:start}
+  .about .panel+.panel{margin:46px 0 0}
+  .skills{grid-template-columns:repeat(3,1fr)}
+  .skills .panel:nth-child(2){margin-top:34px}
+  .strip{grid-template-columns:repeat(6,1fr)}
+  .strip .panel:nth-child(1){grid-column:1/5}
+  .strip .panel:nth-child(2){grid-column:5/7;margin-top:40px}
+  .strip .panel:nth-child(3){grid-column:2/7}
+  .talk{grid-template-columns:1fr 1fr}
+  .talk .bubble:nth-child(even){margin-top:40px}
+  .contact{grid-template-columns:repeat(3,1fr)}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .pop{opacity:1;scale:1;rotate:0deg}
+  #intro{display:none}
+  .tilt{transform:none!important}
+}
+</style>
+</head>
+<body>
+<div id="intro" role="presentation">
+  <div class="stampwrap"><div class="stamp">VARUSAI<br>MOHIDEEN E.M<small>APPROVED: IT STUDENT</small></div><div class="ring"></div></div>
+  <button id="skip" type="button">Skip</button>
+</div>
+
+<nav aria-label="Sections">
+  <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#journey">Journey</a><a href="#beyond">Beyond code</a><a href="#contact">Contact</a>
+</nav>
+
+<main>
+<section id="home">
+  <h1 class="name"><span>Varusai</span><span class="l2">Mohideen</span><span class="l3">E.M</span></h1>
+  <svg class="mono" id="mono" viewBox="0 0 200 200" role="img" aria-label="Monogram VME. Tap it a few times.">
+    <polygon id="burst" fill="#E5412D" stroke="#17120F" stroke-width="5" stroke-linejoin="round"/>
+    <text x="100" y="124" text-anchor="middle" font-family="Bangers,Impact,sans-serif" font-size="74" fill="#FFC82E" stroke="#17120F" stroke-width="4" paint-order="stroke" letter-spacing="2">VME</text>
+  </svg>
+  <div class="hero-row">
+    <p class="bubble">I'm learning to build things for the web, one broken page at a time.</p>
+    <p class="now">Currently: first year of B.Tech IT, and building this site.</p>
+    <div class="btns"><a class="btn" href="#about">Explore</a><a class="btn alt" href="#contact">Say hi</a></div>
+  </div>
+</section>
+
+<section id="about">
+  <h2 class="cap">About me</h2>
+  <div class="about">
+    <div class="panel tilt pop dots">
+      <p class="dropcap">I'm Varusai, a first-year B.Tech student in Information Technology. A few months ago, writing code was something other people did. Now I sit down, type something small, and watch the screen answer back, and that still feels a little like magic.</p>
+      <p>I'm at the start of the story, and I'm fine with that. I'd rather be honest about what I don't know yet and keep going than pretend I've got it all worked out.</p>
+    </div>
+    <div class="panel y tilt pop">
+      <h3>Origin story</h3>
+      <p>New to the field, curious about everything, and happiest when something I built actually runs.</p>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2 class="cap">Skills</h2>
+  <div class="skills">
+    <div class="panel tilt pop">
+      <h3>Comfortable</h3><span class="lvl">I can use it on my own</span>
+      <ul><li>HTML and CSS</li><li>Writing a clear README</li></ul>
+    </div>
+    <div class="panel y tilt pop">
+      <h3>Learning</h3><span class="lvl">Getting there</span>
+      <ul><li>JavaScript</li><li>Python</li><li>C programming</li></ul>
+    </div>
+    <div class="panel r tilt pop">
+      <h3>Just started</h3><span class="lvl">Ask me in a year</span>
+      <ul><li>Git and GitHub</li><li>Data structures</li></ul>
+    </div>
+  </div>
+</section>
+
+<section id="journey">
+  <h2 class="cap">Journey</h2>
+  <div class="strip">
+    <div class="panel c tilt pop dots"><span class="tag">What I've made</span>
+      <h3>This page</h3>
+      <p>My first real portfolio, drawn entirely in code: no images, just CSS and a bit of SVG. Plus the small programs from my first-year classes.</p></div>
+    <div class="panel tilt pop"><span class="tag">Learning now</span>
+      <h3>The basics, properly</h3>
+      <p>JavaScript, Python and C, and how to think before I type.</p></div>
+    <div class="panel y tilt pop dots"><span class="tag">What I want to build</span>
+      <h3>Something people use</h3>
+      <p>A real app, even a tiny one, that solves a problem for someone besides me. Then another one, a little better.</p></div>
+  </div>
+</section>
+
+<section id="beyond">
+  <h2 class="cap">Beyond code</h2>
+  <div class="talk">
+    <p class="bubble tilt pop"><b>Off the keyboard</b>Away from the screen I'm still the same person: curious, a bit stubborn, and easy to get talking.</p>
+    <p class="bubble tilt pop"><b>Fun fact</b>My name has an extra E.M at the end, so spelling it out has become a small party trick.</p>
+    <p class="bubble tilt pop"><b>Comics</b>Every panel on this page is a thank-you to the way comics tell a story in boxes.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <h2 class="cap">Contact</h2>
+  <div class="contact">
+    <a class="panel y tilt pop" href="mailto:your-email@example.com"><h3>Email</h3><p>your-email@example.com</p></a>
+    <a class="panel tilt pop" href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noopener"><h3>LinkedIn</h3><p>linkedin.com/in/your-handle</p></a>
+    <a class="panel r tilt pop" href="https://github.com/your-handle" target="_blank" rel="noopener"><h3>GitHub</h3><p>github.com/your-handle</p></a>
+  </div>
+</section>
+</main>
+<footer>The end... for now. To be continued!</footer>
+
+<script>
+document.documentElement.classList.add('js');
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* intro: plays once, under 2.5s */
+(function(){
+  var intro=document.getElementById('intro'),done=false;
+  function end(){if(done)return;done=true;intro.classList.add('out');setTimeout(function(){intro.remove()},520)}
+  if(reduce){intro.remove();return}
+  document.getElementById('skip').addEventListener('click',end);
+  setTimeout(end,1900);
+})();
+
+/* monogram starburst */
+(function(){
+  var p=[],n=20;
+  for(var i=0;i<n*2;i++){var a=Math.PI*i/n,r=i%2?78:97;p.push((100+r*Math.cos(a)).toFixed(1)+','+(100+r*Math.sin(a)).toFixed(1))}
+  document.getElementById('burst').setAttribute('points',p.join(' '));
+})();
+
+/* panels pop in as you scroll */
+(function(){
+  var els=document.querySelectorAll('.pop');
+  if(!('IntersectionObserver' in window)||reduce){els.forEach(function(e){e.classList.add('in')});return}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+  els.forEach(function(e){io.observe(e)});
+})();
+
+/* signature move: cards tilt toward your finger */
+if(!reduce){
+  document.querySelectorAll('.tilt').forEach(function(c){
+    function move(e){
+      var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+      c.classList.add('live');
+      c.style.setProperty('--ry',(x*16).toFixed(1)+'deg');
+      c.style.setProperty('--rx',(-y*16).toFixed(1)+'deg');
+      c.style.setProperty('--sx',(-x*8).toFixed(1)+'px');
+      c.style.setProperty('--sy',(-y*8).toFixed(1)+'px');
+    }
+    function reset(){c.classList.remove('live');['--rx','--ry','--sx','--sy'].forEach(function(k){c.style.removeProperty(k)})}
+    c.addEventListener('pointerdown',move);
+    c.addEventListener('pointermove',move);
+    c.addEventListener('pointerup',reset);
+    c.addEventListener('pointerleave',reset);
+    c.addEventListener('pointercancel',reset);
+  });
+}
+
+/* easter egg: tap the monogram 5 times */
+(function(){
+  var taps=0,t,words=['POW!','BAM!','ZAP!','WHAM!','KA-POW!','BOOM!'];
+  document.getElementById('mono').addEventListener('click',function(){
+    taps++;clearTimeout(t);t=setTimeout(function(){taps=0},1200);
+    if(taps<5)return;taps=0;
+    words.forEach(function(w,i){
+      var s=document.createElement('div');s.className='sfx';s.textContent=w;
+      s.style.left=(6+Math.random()*58)+'vw';s.style.top=(12+Math.random()*68)+'vh';
+      s.style.fontSize=(3+Math.random()*3.5)+'rem';s.style.setProperty('--r',(Math.random()*40-20)+'deg');
+      s.style.animationDelay=(i*.12)+'s';document.body.appendChild(s);
+      setTimeout(function(){s.remove()},1900);
+    });
+  });
+})();
+</script>
+</body>
+</html>
